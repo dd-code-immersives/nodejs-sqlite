@@ -12,6 +12,15 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.get('/byauthor/:search', function(req, res, next){
+  try {
+    const search  = req.params.search;
+    res.json(quotes.getMultiple(req.query.page, search));
+  } catch (err) {
+    
+  }
+})
+
 /* POST quote */
 router.post('/', function(req, res, next) {
   try {
